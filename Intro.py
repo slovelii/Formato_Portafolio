@@ -78,18 +78,18 @@ with col3:
  url = "https://rec-opt-car.streamlit.app/"
  st.write(f"OCR sin editar: [Enlace]({url})")
 
- st.subheader("Nube de palabras: ")
- image = Image.open('OIG4.jpg')
+ st.subheader("Nube de palabras: Observatorio de Niebla y Palabras")
+ image = Image.open('Brujp.jpg')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos la capacidad de análisis en Imágenes.") 
+ st.write("Donde el sabio Eldrin extrae las palabras de tu conjuro.") 
  url = "https://repositorionube.streamlit.app/"
  st.write(f"Nube: [Enlace]({url})")
  
  st.subheader("Entrenando modelos con TM: Isa y Susa")
- image = Image.open('OIG6.jpg')
+ image = Image.open('SusaIsa.jpeg')
  st.image(image, width=200)
  st.write("Este modelo fue entrenado para reconocer a dos amiga y ver quién es quién.") 
  url = "https://repositorioreconocimiento.streamlit.app/"
- st.write(f"Teachable Machina: [Enlace]({url})")
+ st.write(f"Teachable Machine: [Enlace]({url})")
 
 
