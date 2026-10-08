@@ -101,6 +101,11 @@ st.markdown("""
         letter-spacing: 0.5px;
     }
 
+    /* Elimina/Oculta etiquetas vacías para evitar que se rendericen como barras sin contenido */
+    .badge-tag:empty {
+        display: none !important;
+    }
+
     /* Ajuste de imágenes redondeadas */
     [data-testid="stImage"] img {
         border-radius: 12px;
