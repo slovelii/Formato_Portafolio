@@ -33,12 +33,12 @@ with col1:
  url = "https://receta-de-gnocchis.streamlit.app/"
  st.write(f"Texto a voz: [Enlace]({url})")
 
- st.subheader("Reconocimiento de Objetos")
- image = Image.open('txt_to_audio.png')
+ st.subheader("Lectura de texto: Ayuda a personas con mutismo")
+ image = Image.open('OCR.jpg')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos como se detectan objetos en Imágenes.") 
- url = "https://yolov5cmc.streamlit.app/"
- st.write(f"YOLO: [Enlace]({url})")
+ st.write("En esta columna veremos una página que lee fragmentos de textos y ayuda a quienes más lo necesitan.") 
+ url = "https://repositorio-profe-ocr-audio.streamlit.app/"
+ st.write(f"OCR editado: [Enlace]({url})")
 
  st.subheader("Entrenando Modelos")
  image = Image.open('OIG5.jpg')
@@ -71,12 +71,12 @@ with col2:
 
 
 with col3: 
- st.subheader("Generación en Contexto")
+ st.subheader("Lectura de texto - Sin editar")
  image = Image.open('Chat_pdf.png')
  st.image(image, width=190)
- st.write("En la siguiente veremos una aplicación que usa RAG a partir de un documento (PDF).") 
- url = "https://chatpdf-cc.streamlit.app/"
- st.write(f"RAG: [Enlace]({url})")
+ st.write("En esta columna veremos un OCR que lee el texto insertado y lo dice con audio.") 
+ url = "https://rec-opt-car.streamlit.app/"
+ st.write(f"OCR sin editar: [Enlace]({url})")
 
  st.subheader("Análisis de Imagen")
  image = Image.open('OIG4.jpg')
