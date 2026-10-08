@@ -51,7 +51,7 @@ st.markdown("""
 
     /* Hero Banner Luminoso */
     .hero-card {
-        background: linear-gradient(135deg, #FFFFFF 0%, #E2F5EA 100%);
+        background: linear-gradient(135deg, #29331F 0%, #29331F 100%);
         border: 1px solid #BCE5CC;
         border-radius: 16px;
         padding: 32px;
