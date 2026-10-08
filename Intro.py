@@ -16,7 +16,7 @@ with st.sidebar:
     " 2. Un traductor de muchas lenguas. "
     " 3. Reconocimientos de sentimientos y objetos. "
   )
-  st.write(lista)
+  st.write(Lista)
 
 url_ia="https://eusbfeqb6hwwjjsjo6gaed.streamlit.app/"
 st.subheader("En este primer enlace encontrarás mi primer trabajo realizado con GitHUb y StreamLit, " 
