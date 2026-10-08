@@ -40,10 +40,10 @@ with col1:
  url = "https://repositorio-profe-ocr-audio.streamlit.app/"
  st.write(f"OCR editado: [Enlace]({url})")
 
- st.subheader("Análisis de texto TF-IDF: ")
- image = Image.open('OIG5.jpg')
+ st.subheader("Análisis de texto TF-IDF: Entendimiento del sistema ")
+ image = Image.open('cerebro.jpg')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos como puedes usar tu modelo entrenado.") 
+ st.write("Acá no sólo habrá una clasificación según preguntas, ¡También entenderás cómo sucede!") 
  url = "https://respositorioclasificacion.streamlit.app/"
  st.write(f"TF-IDF: [Enlace]({url})")
 
@@ -55,17 +55,17 @@ with col2:
  url = "https://repositorio-profe-traductor.streamlit.app/"
  st.write(f"Voz a texto: [Enlace]({url})")
 
- st.subheader("Análisis de sentimientos: ")
- image = Image.open('data_analisis.png')
+ st.subheader("Análisis de sentimientos: Terapeuta virtual y asistente en inglés")
+ image = Image.open('sentimientos.webp')
  st.image(image, width=190)
- st.write("En la siguiente enlace veremos como se pueden analizar datos usando agentes.") 
+ st.write("Comparte tus sentimientos en ginlés apra practicar el idioma y est terapeuta te dará tips") 
  url = "https://repositoriosentimientos-bv9nizmnom63ycp7x7sdsf.streamlit.app/"
  st.write(f"Análisis de sentimientos: [Enlace]({url})")
 
- st.subheader("Reconocimiento de objetos con YOLO: ")
- image = Image.open('OIG3.jpg')
+ st.subheader("Reconocimiento de objetos con YOLO: Contador de inventario")
+ image = Image.open('inventario.avif')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos como realizamos transcripciones de audio/video.") 
+ st.write("Si tienes una tienda y neceisstas un conteo rápido de inventario que hay en el momento, esta página es para ti.") 
  url = "https://repositorioyolo.streamlit.app/"
  st.write(f"YOLO: [Enlace]({url})")
 
