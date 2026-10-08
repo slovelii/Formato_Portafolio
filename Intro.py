@@ -48,6 +48,17 @@ st.markdown("""
         transition: transform 0.25s ease, box-shadow 0.25s ease;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     }
+
+    /* Hero Banner Luminoso */
+    .hero-card {
+        background: linear-gradient(135deg, #FFFFFF 0%, #E2F5EA 100%);
+        border: 1px solid #BCE5CC;
+        border-radius: 16px;
+        padding: 32px;
+        margin-bottom: 28px;
+        box-shadow: 0 10px 30px rgba(0, 209, 143, 0.08);
+    }
+    
     .project-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 28px rgba(0, 209, 143, 0.2);
