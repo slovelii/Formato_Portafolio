@@ -30,7 +30,7 @@ st.markdown("""
 
     /* Sidebar verde menta claro con TEXTO NEGRO */
     [data-testid="stSidebar"] {
-        background-color: #EBF7F1 !important;
+        background-color: #A8BA93 !important;
         border-right: 1px solid #D1EAD9;
     }
     
