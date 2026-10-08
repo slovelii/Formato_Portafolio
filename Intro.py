@@ -40,12 +40,12 @@ with col1:
  url = "https://repositorio-profe-ocr-audio.streamlit.app/"
  st.write(f"OCR editado: [Enlace]({url})")
 
- st.subheader("Entrenando Modelos")
+ st.subheader("Análisis de texto TF-IDF: ")
  image = Image.open('OIG5.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos como puedes usar tu modelo entrenado.") 
- url = "https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/"
- st.write(f"YOLO: [Enlace]({url})")
+ url = "https://respositorioclasificacion.streamlit.app/"
+ st.write(f"TF-IDF: [Enlace]({url})")
 
 with col2: 
  st.subheader("Conversión de voz a texto: Torre de Babel")
@@ -55,19 +55,19 @@ with col2:
  url = "https://repositorio-profe-traductor.streamlit.app/"
  st.write(f"Voz a texto: [Enlace]({url})")
 
- st.subheader("Análisis de Datos")
+ st.subheader("Análisis de sentimientos: ")
  image = Image.open('data_analisis.png')
  st.image(image, width=190)
  st.write("En la siguiente enlace veremos como se pueden analizar datos usando agentes.") 
- url = "https://dataagente.streamlit.app/"
- st.write(f"Datos: [Enlace]({url})")
+ url = "https://repositoriosentimientos-bv9nizmnom63ycp7x7sdsf.streamlit.app/"
+ st.write(f"Análisis de sentimientos: [Enlace]({url})")
 
- st.subheader("Trasnscriptor Audio y Video")
+ st.subheader("Reconocimiento de objetos con YOLO: ")
  image = Image.open('OIG3.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos como realizamos transcripciones de audio/video.") 
- url = "https://transcript-whisper.streamlit.app/"
- st.write(f"Transcriptor: [Enlace]({url})")
+ url = "https://repositorioyolo.streamlit.app/"
+ st.write(f"YOLO: [Enlace]({url})")
 
 
 with col3: 
@@ -78,18 +78,18 @@ with col3:
  url = "https://rec-opt-car.streamlit.app/"
  st.write(f"OCR sin editar: [Enlace]({url})")
 
- st.subheader("Análisis de Imagen")
+ st.subheader("Nube de palabras: ")
  image = Image.open('OIG4.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos la capacidad de análisis en Imágenes.") 
- url = "https://vision2-gpt4o.streamlit.app/"
- st.write(f"Vision: [Enlace]({url})")
+ url = "https://repositorionube.streamlit.app/"
+ st.write(f"Nube: [Enlace]({url})")
  
- st.subheader("Sistema Ciberfísico")
+ st.subheader("Entrenando modelos con TM: Isa y Susa")
  image = Image.open('OIG6.jpg')
  st.image(image, width=200)
- st.write("En la siguiente enlace veremos la capacidad de interacción con el mundo físico.") 
- url = "https://vision2-gpt4o.streamlit.app/"
- st.write(f"Vision: [Enlace]({url})")
+ st.write("Este modelo fue entrenado para reconocer a dos amiga y ver quién es quién.") 
+ url = "https://repositorioreconocimiento.streamlit.app/"
+ st.write(f"Teachable Machina: [Enlace]({url})")
 
 
