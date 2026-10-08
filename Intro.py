@@ -24,7 +24,7 @@ st.markdown("""
 
     /* Fondo principal ultra claro y fresco */
     .stApp {
-        background-color: #F6FAF7 !important;
+        background-color: #588F31 !important;
     }
 
     /* Sidebar verde menta claro con TEXTO NEGRO/OSCURO */
