@@ -25,7 +25,7 @@ st.markdown("""
 
     /* Fondo principal ultra claro */
     .stApp {
-        background-color: #F6FAF7 !important;
+        background-color: #52663D !important;
     }
 
     /* Sidebar verde menta claro con TEXTO NEGRO */
@@ -40,7 +40,7 @@ st.markdown("""
 
     /* Hero Banner Luminoso */
     .hero-card {
-        background: linear-gradient(135deg, #FFFFFF 0%, #E2F5EA 100%);
+        background: linear-gradient(135deg, #29331F 0%, #E2F5EA 100%);
         border: 1px solid #BCE5CC;
         border-radius: 16px;
         padding: 32px;
@@ -50,7 +50,7 @@ st.markdown("""
 
     /* Tarjetas de Proyecto */
     .project-card {
-        background: #FFFFFF !important;
+        background: #29331F !important;
         border: 1px solid #E1EFE6;
         border-radius: 16px;
         padding: 20px;
