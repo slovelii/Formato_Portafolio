@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# ESTILOS CSS PERSONALIZADOS — LUMINOSO Y VERDE MENTA
+# ESTILOS CSS PERSONALIZADOS — LUMINOSO, VERDE MENTA Y TEXTOS NEGROS
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -27,21 +27,30 @@ st.markdown("""
         background-color: #F6FAF7 !important;
     }
 
-    /* Sidebar verde menta claro */
+    /* Sidebar verde menta claro con TEXTO NEGRO/OSCURO */
     [data-testid="stSidebar"] {
         background-color: #EBF7F1 !important;
         border-right: 1px solid #D1EAD9;
     }
+    
+    [data-testid="stSidebar"] * {
+        color: #111827 !important;
+    }
+    [data-testid="stSidebar"] h1, 
+    [data-testid="stSidebar"] h2, 
+    [data-testid="stSidebar"] h3, 
+    [data-testid="stSidebar"] h4, 
+    [data-testid="stSidebar"] h5, 
+    [data-testid="stSidebar"] h6 {
+        color: #0C3823 !important;
+        font-weight: 800 !important;
+    }
 
-    /* Encabezados y títulos */
+    /* Encabezados y títulos principales */
     h1 {
         color: #0C3823 !important;
         font-weight: 800 !important;
         letter-spacing: -1px !important;
-    }
-    h2, h3, h4 {
-        color: #124E32 !important;
-        font-weight: 700 !important;
     }
 
     /* Hero Banner Luminoso */
@@ -54,7 +63,7 @@ st.markdown("""
         box-shadow: 0 10px 30px rgba(0, 209, 143, 0.08);
     }
 
-    /* Tarjetas de Proyecto */
+    /* Tarjetas de Proyecto en Columnas */
     .project-card {
         background: #FFFFFF;
         border: 1px solid #E1EFE6;
@@ -70,6 +79,27 @@ st.markdown("""
         border-color: #00D18F;
     }
 
+    /* FORZAR TEXTO NEGRO/OSCURO DENTRO DE LAS COLUMNAS Y TARJETAS */
+    .project-card h1, 
+    .project-card h2, 
+    .project-card h3, 
+    .project-card h4, 
+    .project-card h5, 
+    .project-card h6 {
+        color: #111827 !important;
+        font-weight: 700 !important;
+        margin-top: 6px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .project-card p, 
+    .project-card span, 
+    .project-card div {
+        color: #1F2937 !important;
+        font-size: 0.93rem !important;
+        line-height: 1.5 !important;
+    }
+
     /* Botones de Enlace Verde Menta */
     .btn-link {
         display: inline-block;
@@ -77,8 +107,8 @@ st.markdown("""
         text-align: center;
         background: linear-gradient(135deg, #00D18F 0%, #00B377 100%);
         color: #FFFFFF !important;
-        font-weight: 700;
-        font-size: 0.9rem;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
         padding: 10px 16px;
         border-radius: 10px;
         text-decoration: none !important;
@@ -94,10 +124,10 @@ st.markdown("""
 
     /* Tags destacados */
     .badge-tag {
-        background-color: #E2F5EA;
-        color: #008F5F;
-        font-size: 0.75rem;
-        font-weight: 700;
+        background-color: #E2F5EA !important;
+        color: #007A52 !important;
+        font-size: 0.75rem !important;
+        font-weight: 800 !important;
         padding: 4px 10px;
         border-radius: 20px;
         display: inline-block;
@@ -150,7 +180,7 @@ st.markdown("""
 <div class="hero-card">
     <span class="badge-tag">✨ Portafolio Interactivo</span>
     <h1 style="margin: 4px 0 10px 0;">Ecosistema de Aplicaciones de IA 🍃</h1>
-    <p style="font-size: 1.05rem; color: #2C5E43; margin-bottom: 16px;">
+    <p style="font-size: 1.05rem; color: #1F2937 !important; margin-bottom: 16px;">
         Explora una colección de soluciones inteligentes enfocadas en voz, visión artificial, procesamiento de lenguaje natural e interacción multimodal.
     </p>
 </div>
@@ -160,8 +190,8 @@ st.markdown("""
 url_ia = "https://eusbfeqb6hwwjjsjo6gaed.streamlit.app/"
 st.markdown(f"""
 <div style="background: #FFFFFF; border-left: 5px solid #00D18F; border-radius: 12px; padding: 18px 24px; margin-bottom: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-    <h4 style="margin:0; color:#0C3823;">🐶 Homenaje Canino — Primer Proyecto Streamlit & Git</h4>
-    <p style="margin:6px 0 12px 0; color:#3D6E52; font-size: 0.95rem;">
+    <h4 style="margin:0; color:#111827 !important; font-weight:700;">🐶 Homenaje Canino — Primer Proyecto Streamlit & Git</h4>
+    <p style="margin:6px 0 12px 0; color:#1F2937 !important; font-size: 0.95rem;">
         Página pionera desarrollada con GitHub y Streamlit, potenciada con IA en homenaje a nuestros compañeros de cuatro patas.
     </p>
     <a href="{url_ia}" target="_blank" class="btn-link" style="width: auto; padding: 8px 20px;">🐾 Explorar Proyecto Perritos</a>
@@ -268,7 +298,7 @@ with col2:
 with col3:
     # Proyecto 7: OCR Básico
     st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Visión Basica</span>', unsafe_allow_html=True)
+    st.markdown('<span class="badge-tag">Visión Bilingüe</span>', unsafe_allow_html=True)
     st.subheader("📄 Reconocimiento Óptico OCR")
     try:
         image = Image.open('Chat_pdf.png')
