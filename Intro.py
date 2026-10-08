@@ -3,16 +3,24 @@ from PIL import Image
 st.title("Aplicaciones de Inteligencia Artificial.")
 
 with st.sidebar:
-  st.subheader("Aplicaciones con Inteligencia Artificial.")
+  st.subheader("Creación de interfaces multimadales - Portafolio #1 Susana Marín")
   parrafo = (
-    "La inteligencia artificial permite mejorar la toma de decisiones con el uso de datos, "
-    "automatizar tareas rutinarias y proporcionar análisis avanzados en tiempo real, lo que "
-    "resulta en una mayor eficiencia y precisión en diversos campos."
+    "Esta página será el insumo para encontrar lo que he aprendido en las clases de interfaces "
+    "multimodales, donde he podido desarrollar mi creatividad utilizando herramientas propias "
+    "de la programación y la IA combinando estas con el diseño interactivo. "
   )
   st.write(parrafo)
+  Lista = (
+    "Algunas de las cosas que encontrarás son: "
+    " 1. Conversiones de texto a voz y voz a texto. "
+    " 2. Un traductor de muchas lenguas. "
+    " 3. Reconocimientos de sentimientos y objetos. "
+  )
+  st.write(lista)
 
-url_ia="https://sites.google.com/view/aplicacionesdeia/inicio"
-st.subheader("En el siguiente enlace puedes encontrar páginas y ejercicios prácticos")
+url_ia="https://eusbfeqb6hwwjjsjo6gaed.streamlit.app/"
+st.subheader("En este primer enlace encontrarás mi primer trabajo realizado con GitHUb y StreamLit, " 
+             "potenciado por medio de Inteligencia artificial en el que rindo homenaje a perritos :) ")
 st.write(f"Enlace para páginas y ejercicios: [Enlace]({url_ia})")
 col1, col2, col3 = st.columns(3)
 
