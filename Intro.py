@@ -40,7 +40,7 @@ st.markdown("""
 
     /* Hero Banner Luminoso */
     .hero-card {
-        background: linear-gradient(135deg, #29331F 0%, #E2F5EA 100%);
+        background: linear-gradient(135deg, #29331F 0%, #29331F 100%);
         border: 1px solid #BCE5CC;
         border-radius: 16px;
         padding: 32px;
@@ -158,7 +158,7 @@ st.markdown("""
 # Proyecto Homenaje Perritos (Enlace Principal)
 url_ia = "https://eusbfeqb6hwwjjsjo6gaed.streamlit.app/"
 st.markdown(f"""
-<div style="background: #FFFFFF; border-left: 5px solid #00D18F; border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.04);">
+<div style="background: #29331F; border-left: 5px solid #00D18F; border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.04);">
     <h3 style="margin:0; color:#000000 !important; font-weight:800; font-size: 1.2rem;">🐶 Homenaje Canino — Primer Proyecto Streamlit & Git</h3>
     <p style="margin:8px 0 14px 0; color:#000000 !important; font-size: 0.98rem; line-height: 1.5;">
         Página pionera desarrollada con GitHub y Streamlit, potenciada con IA en homenaje a nuestros compañeros de cuatro patas.
