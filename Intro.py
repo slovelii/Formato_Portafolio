@@ -274,7 +274,7 @@ with tab1:
     c1, c2, c3 = st.columns(3, gap="medium")
     with c1:
         render_card("Audio & Recetas", "🍝 Receta Audible de Gnocchis", "TextoAVoz.webp",
-                    "Convierte la lectura de una deliciosa receta de gnocchis a audio en tiempo real con un solo clic.",
+                    "Convierte la lectura de una deliciosa receta de gnocchis a audio en tiempo real con un solo clic. ¡Que divertido cocinar!",
                     "🔊 Escuchar Receta", "https://receta-de-gnocchis.streamlit.app/")
     with c2:
         render_card("Traducción & Voz", "🌍 Torre de Babel Políglota", "Traductor.webp",
@@ -289,7 +289,7 @@ with tab1:
 
     c4, c5, c6 = st.columns(3, gap="medium")
     with c4:
-        render_card("Accesibilidad & OCR", "🗣️ Asistente de Lectura & Mutismo", "OCR.jpg",
+        render_card("Accesibilidad & OCR", "🗣️ Asistente de Mutismo", "OCR.jpg",
                     "Sistema de lectura asistida diseñado para convertir fragmentos de texto visual a voz para personas con necesidades del habla.",
                     "📖 Abrir Asistente OCR", "https://repositorio-profe-ocr-audio.streamlit.app/")
     with c5:
@@ -298,7 +298,7 @@ with tab1:
                     "🌿 Iniciar Sesión", "https://repositoriosentimientos-bv9nizmnom63ycp7x7sdsf.streamlit.app/")
     with c6:
         render_card("Narrativa & Texto", "🔮 Observatorio de Niebla", "Brujp.jpg",
-                    "Adéntrate en la torre del Sabio Eldrin y materializa las palabras de tus textos en nubes de niebla mágica.",
+                    "Adéntrate en la torre del Sabio Eldrin y materializa las palabras de tus textos en nubes de niebla mágica. ¡Déjate sorprender!",
                     "🔮 Canalizar Niebla", "https://repositorionube.streamlit.app/")
 
     st.markdown("<br>", unsafe_allow_html=True)
