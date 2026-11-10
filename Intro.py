@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# ESTILOS CSS PERSONALIZADOS (ALTURAS UNIFORMES)
+# ESTILOS CSS PERSONALIZADOS (AMPLITUD Y ORDEN)
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -55,12 +55,12 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    /* Tarjetas de Proyecto con altura uniforme */
+    /* Tarjetas de Proyecto Amplias y Uniformes */
     .project-card {
         background: #29331F !important;
         border: 1px solid #E1EFE6;
         border-radius: 16px;
-        padding: 20px;
+        padding: 24px;
         margin-bottom: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -68,6 +68,7 @@ st.markdown("""
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
+        min-height: 480px; /* Altura generosa para que quepa todo holgadamente */
     }
 
     .project-card:hover {
@@ -76,7 +77,7 @@ st.markdown("""
         border-color: #00D18F;
     }
 
-    /* FORZAR ALTURA IGUAL EN IMÁGENES DE STREAMLIT */
+    /* FORZAR ALTURA UNIFORME EN LAS IMÁGENES */
     [data-testid="stImage"] img {
         height: 160px !important;
         width: 100% !important;
@@ -197,19 +198,16 @@ st.markdown(f"""
 
 
 # ─────────────────────────────────────────────
-# FUNCIÓN PARA RENDERIZAR TARJETAS UNIFORMES
+# FUNCIÓN PARA RENDERIZAR TARJETAS AMPLIAS
 # ─────────────────────────────────────────────
 def render_card(tag, title, img_path, description, btn_text, url, disabled=False):
-    # Abrimos el contenedor general con la clase .project-card
     st.markdown('<div class="project-card">', unsafe_allow_html=True)
     
-    # Cabecera y textos superiores
     st.markdown(f"""
         <span class="badge-tag">{tag}</span>
         <h3 style="color:#FFFFFF !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">{title}</h3>
     """, unsafe_allow_html=True)
     
-    # Imagen gestionada por Streamlit pero forzada por CSS a medir exactamente 160px de alto
     if img_path:
         try:
             image = Image.open(img_path)
@@ -227,7 +225,6 @@ def render_card(tag, title, img_path, description, btn_text, url, disabled=False
         </div>
         """, unsafe_allow_html=True)
 
-    # Descripción y botón inferior alineados al fondo
     btn_html = f'<a href="{url}" target="_blank" class="btn-link">{btn_text}</a>' if not disabled else f'<a class="btn-link disabled">{btn_text}</a>'
     
     st.markdown(f"""
@@ -291,7 +288,7 @@ with tab1:
                     "🤖 Probar Clasificador", "https://rpZELkorMwhkkpShF5PvT8YnqRCupnLTNG.streamlit.app/")
 
 
-# ── PESTAÑA 2: SEGUNDA PARTE (8 CUADROS VACÍOS) ──
+# ── PESTAÑA 2: SEGUNDA PARTE (8 CUADROS VACÍOS AMPLIOS) ──
 with tab2:
     st.markdown("<h3 style='color:#FFFFFF; font-weight:800; margin-bottom:20px;'>🛠️ Espacio de Desarrollo — Parte 2</h3>", unsafe_allow_html=True)
     
