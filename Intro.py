@@ -179,7 +179,7 @@ with st.sidebar:
     st.markdown("<h5 style='color:#000000 !important; font-weight:700;'>🚀 Contenido</h5>", unsafe_allow_html=True)
     st.markdown("""
     <ol style='color:#000000 !important; font-size:0.9rem; padding-left:18px;'>
-        <li><b>Parte 1:</b> Aplicaciones Multimodales (9 Proyectos)</li>
+        <li><b>Parte 1:</b> Aplicaciones Anteriores (9 Proyectos)</li>
         <li><b>Parte 2:</b> Nuevos Desarrollos e IoT (8 Proyectos)</li>
     </ol>
     """, unsafe_allow_html=True)
@@ -267,7 +267,7 @@ def render_card(tag, title, img_path, description, btn_text, url, disabled=False
 # ─────────────────────────────────────────────
 # PESTAÑAS DEL PORTAFOLIO
 # ─────────────────────────────────────────────
-tab1, tab2 = st.tabs(["📌 Parte 1: Proyectos Actuales", "🚀 Parte 2: Próximos Desarrollos"])
+tab1, tab2 = st.tabs(["📌 Parte 1: Proyectos Anteriores", "🚀 Parte 2: Nuevos Desarrollos"])
 
 # ── PESTAÑA 1: PROYECTOS ACTUALES ──
 with tab1:
