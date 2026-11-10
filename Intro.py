@@ -275,7 +275,7 @@ with tab1:
     with c1:
         render_card("Audio & Recetas", "🍝 Receta Audible de Gnocchis", "TextoAVoz.webp",
                     "Convierte la lectura de una deliciosa receta de gnocchis a audio en tiempo real con un solo clic. ¡Que divertido cocinar!",
-                    "🔊 Escuchar Receta", "https://receta-de-gnocchis.streamlit.app/")
+                    "🔊 Escuchar Receta Gnocchis", "https://receta-de-gnocchis.streamlit.app/")
     with c2:
         render_card("Traducción & Voz", "🌍 Torre de Babel Políglota", "Traductor.webp",
                     "Graba tu voz y tradúcela de forma instantánea a múltiples idiomas, incluyendo Árabe, Catalán, Francés y más.",
@@ -291,7 +291,7 @@ with tab1:
     with c4:
         render_card("Accesibilidad & OCR", "🗣️ Asistente de Mutismo", "OCR.jpg",
                     "Sistema de lectura asistida diseñado para convertir fragmentos de texto visual a voz para personas con necesidades del habla.",
-                    "📖 Abrir Asistente OCR", "https://repositorio-profe-ocr-audio.streamlit.app/")
+                    "📖 Asistente OCR", "https://repositorio-profe-ocr-audio.streamlit.app/")
     with c5:
         render_card("Bienestar & Inglés", "💬 Terapeuta & English Journal", "sentimientos.webp",
                     "Expresa tus emociones en inglés para recibir orientación terapéutica mientras practicas la redacción en el idioma.",
@@ -307,7 +307,7 @@ with tab1:
     with c7:
         render_card("PLN & Modelos", "🧠 Laboratorio TF-IDF", "cerebro.jpg",
                     "Aprende y experimenta el modelo mental detrás de la clasificación de preguntas y recuperación vectorial de información.",
-                    "📊 Analizar TF-IDF", "https://respositorioclasificacion.streamlit.app/")
+                    "📊 Analizar modelo TF-IDF", "https://respositorioclasificacion.streamlit.app/")
     with c8:
         render_card("Visión IA & Stock", "📦 ScannerIA — Control de Stock", "inventario.avif",
                     "Auditoría visual automática en tiempo real para negocios y tiendas usando modelos YOLO de detección de objetos.",
