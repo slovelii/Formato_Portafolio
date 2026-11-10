@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# ESTILOS CSS PERSONALIZADOS (ALTA LEGIBILIDAD)
+# ESTILOS CSS PERSONALIZADOS
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -23,12 +23,11 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    /* Fondo principal ultra claro */
     .stApp {
         background-color: #52663D !important;
     }
 
-    /* Sidebar verde menta claro con TEXTO NEGRO */
+    /* Sidebar */
     [data-testid="stSidebar"] {
         background-color: #A8BA93 !important;
         border-right: 1px solid #D1EAD9;
@@ -38,34 +37,67 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    /* Tarjetas de Proyecto */
-    .project-card {
+    /* Tabs Personalizadas */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        background-color: #29331F;
+        border-radius: 10px;
+        color: #FFFFFF !important;
+        padding: 10px 20px;
+        font-weight: 700;
+        border: 1px solid #3E4D2F;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #00D18F !important;
+        color: #000000 !important;
+    }
+
+    /* Grid de tarjetas para igualar alturas */
+    .card-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
         background: #29331F !important;
         border: 1px solid #E1EFE6;
         border-radius: 16px;
         padding: 20px;
-        margin-bottom: 24px;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    /* Hero Banner Luminoso */
-    .hero-card {
-        background: linear-gradient(135deg, #29331F 0%, #29331F 100%);
-        border: 1px solid #BCE5CC;
-        border-radius: 16px;
-        padding: 32px;
-        margin-bottom: 28px;
-        box-shadow: 0 10px 30px rgba(0, 209, 143, 0.08);
-    }
-    
-    .project-card:hover {
+    .card-grid:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 28px rgba(0, 209, 143, 0.2);
         border-color: #00D18F;
     }
 
-    /* Botones de Enlace Verde Menta */
+    .card-header {
+        flex-grow: 1;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+
+    /* Hero Banner */
+    .hero-card {
+        background: linear-gradient(135deg, #29331F 0%, #29331F 100%);
+        border: 1px solid #BCE5CC;
+        border-radius: 16px;
+        padding: 32px;
+        margin-bottom: 24px;
+        box-shadow: 0 10px 30px rgba(0, 209, 143, 0.08);
+    }
+
+    /* Botones */
     .btn-link {
         display: block;
         width: 100%;
@@ -86,8 +118,14 @@ st.markdown("""
         box-shadow: 0 6px 18px rgba(0, 209, 143, 0.4);
         color: #FFFFFF !important;
     }
+    .btn-link.disabled {
+        background: #4A5543 !important;
+        color: #888888 !important;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
 
-    /* Tags destacados */
+    /* Tags */
     .badge-tag {
         background-color: #E2F5EA !important;
         color: #007A52 !important;
@@ -96,20 +134,9 @@ st.markdown("""
         padding: 4px 12px;
         border-radius: 20px;
         display: inline-block;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-    }
-
-    /* Elimina/Oculta etiquetas vacías para evitar que se rendericen como barras sin contenido */
-    .badge-tag:empty {
-        display: none !important;
-    }
-
-    /* Ajuste de imágenes redondeadas */
-    [data-testid="stImage"] img {
-        border-radius: 12px;
-        object-fit: cover;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -119,7 +146,7 @@ st.markdown("""
 # BARRA LATERAL (SIDEBAR)
 # ─────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("<h3 style='color:#000000 !important; font-weight:800;'>🌿 Portafolio #1</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color:#000000 !important; font-weight:800;'>🌿 Portafolio IA</h3>", unsafe_allow_html=True)
     st.markdown("<h4 style='color:#000000 !important; font-weight:700;'>Susana Marín</h4>", unsafe_allow_html=True)
     st.markdown("<p style='color:#333333 !important; font-size:0.88rem;'>Interfaces Multimodales & Visión por Computadora</p>", unsafe_allow_html=True)
     st.divider()
@@ -134,13 +161,11 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
-    st.markdown("<h5 style='color:#000000 !important; font-weight:700;'>🚀 ¿Qué encontrarás aquí?</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='color:#000000 !important; font-weight:700;'>🚀 Contenido</h5>", unsafe_allow_html=True)
     st.markdown("""
     <ol style='color:#000000 !important; font-size:0.9rem; padding-left:18px;'>
-        <li><b>Voz & Audio:</b> Conversión de Texto a Voz (TTS) y Voz a Texto (STT).</li>
-        <li><b>Traducción:</b> Herramientas políglotas multilingües.</li>
-        <li><b>Análisis de Texto:</b> Proceso TF-IDF y análisis de sentimientos.</li>
-        <li><b>Visión IA:</b> Reconocimiento de objetos con YOLO y clasificadores.</li>
+        <li><b>Parte 1:</b> Aplicaciones Multimodales (9 Proyectos)</li>
+        <li><b>Parte 2:</b> Proyectos en Desarrollo (8 Espacios)</li>
     </ol>
     """, unsafe_allow_html=True)
 
@@ -154,19 +179,19 @@ with st.sidebar:
 st.markdown("""
 <div class="hero-card">
     <span class="badge-tag">✨ Portafolio Interactivo</span>
-    <h1 style="margin: 4px 0 10px 0; color: #000000 !important; font-weight: 800;">Ecosistema de Aplicaciones de IA 🍃</h1>
-    <p style="font-size: 1.05rem; color: #000000 !important; margin-bottom: 16px; line-height: 1.5;">
+    <h1 style="margin: 4px 0 10px 0; color: #FFFFFF !important; font-weight: 800;">Ecosistema de Aplicaciones de IA 🍃</h1>
+    <p style="font-size: 1.05rem; color: #E0E0E0 !important; margin-bottom: 0px; line-height: 1.5;">
         Explora una colección de soluciones inteligentes enfocadas en voz, visión artificial, procesamiento de lenguaje natural e interacción multimodal.
     </p>
 </div>
 """, unsafe_allow_html=True)
 
-# Proyecto Homenaje Perritos (Enlace Principal)
+# Proyecto Homenaje Perritos
 url_ia = "https://eusbfeqb6hwwjjsjo6gaed.streamlit.app/"
 st.markdown(f"""
-<div style="background: #29331F; border-left: 5px solid #00D18F; border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.04);">
-    <h3 style="margin:0; color:#000000 !important; font-weight:800; font-size: 1.2rem;">🐶 Homenaje Canino — Primer Proyecto Streamlit & Git</h3>
-    <p style="margin:8px 0 14px 0; color:#000000 !important; font-size: 0.98rem; line-height: 1.5;">
+<div style="background: #29331F; border-left: 5px solid #00D18F; border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; box-shadow: 0 2px 10px rgba(0,0,0,0.04);">
+    <h3 style="margin:0; color:#FFFFFF !important; font-weight:800; font-size: 1.2rem;">🐶 Homenaje Canino — Primer Proyecto Streamlit & Git</h3>
+    <p style="margin:8px 0 14px 0; color:#DDDDDD !important; font-size: 0.98rem; line-height: 1.5;">
         Página pionera desarrollada con GitHub y Streamlit, potenciada con IA en homenaje a nuestros compañeros de cuatro patas.
     </p>
     <a href="{url_ia}" target="_blank" class="btn-link" style="display:inline-block; width: auto; padding: 10px 24px;">🐾 Explorar Proyecto Perritos</a>
@@ -175,140 +200,123 @@ st.markdown(f"""
 
 
 # ─────────────────────────────────────────────
-# GRID DE PROYECTOS (3 COLUMNAS)
+# PESTAÑAS DEL PORTAFOLIO
 # ─────────────────────────────────────────────
-col1, col2, col3 = st.columns(3, gap="large")
+tab1, tab2 = st.tabs(["📌 Parte 1: Proyectos Actuales", "🚀 Parte 2: Próximos Desarrollos"])
 
-# ── COLUMNA 1 ──
-with col1:
-    # Proyecto 1: Gnocchis
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Audio & Recetas</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">🍝 Receta Audible de Gnocchis</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('TextoAVoz.webp')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Convierte la lectura de una deliciosa receta de gnocchis a audio en tiempo real con un solo clic.</p>', unsafe_allow_html=True)
-    url = "https://receta-de-gnocchis.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">🔊 Escuchar Receta</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+def render_card(tag, title, img_path, description, btn_text, url, disabled=False):
+    """Función para renderizar una tarjeta limpia en HTML puro evitando etiquetas desalineadas."""
+    btn_html = f'<a href="{url}" target="_blank" class="btn-link">{btn_text}</a>' if not disabled else f'<a class="btn-link disabled">{btn_text}</a>'
+    
+    html_code = f"""
+    <div class="card-grid">
+        <div class="card-header">
+            <span class="badge-tag">{tag}</span>
+            <h3 style="color:#FFFFFF !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">{title}</h3>
+            <img src="{img_path}" class="card-img" onerror="this.src='https://via.placeholder.com/400x200/1E2617/FFFFFF?text=Imagen+Proyecto'">
+            <p style="color:#CCCCCC !important; font-size:0.92rem; line-height:1.5; margin-top:10px;">{description}</p>
+        </div>
+        <div>
+            {btn_html}
+        </div>
+    </div>
+    """
+    st.markdown(html_code, unsafe_allow_html=True)
 
-    # Proyecto 2: OCR Accesibilidad
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Accesibilidad & OCR</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">🗣️ Asistente de Lectura & Mutismo</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('OCR.jpg')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Sistema de lectura asistida diseñado para convertir fragmentos de texto visual a voz para personas con necesidades del habla.</p>', unsafe_allow_html=True)
-    url = "https://repositorio-profe-ocr-audio.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">📖 Abrir Asistente OCR</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+# ── PESTAÑA 1: PROYECTOS ACTUALES ──
+with tab1:
+    # Fila 1
+    col1, col2, col3 = st.columns(3, gap="medium")
+    with col1:
+        render_card(
+            "Audio & Recetas", "🍝 Receta Audible de Gnocchis", "TextoAVoz.webp",
+            "Convierte la lectura de una deliciosa receta de gnocchis a audio en tiempo real con un solo clic.",
+            "🔊 Escuchar Receta", "https://receta-de-gnocchis.streamlit.app/"
+        )
+    with col2:
+        render_card(
+            "Traducción & Voz", "🌍 Torre de Babel Políglota", "Traductor.webp",
+            "Graba tu voz y tradúcela de forma instantánea a múltiples idiomas, incluyendo Árabe, Catalán, Francés y más.",
+            "🎙️ Probar Traductor", "https://repositorio-profe-traductor.streamlit.app/"
+        )
+    with col3:
+        render_card(
+            "Visión Bilingüe", "📄 Reconocimiento Óptico OCR", "Chat_pdf.png",
+            "Herramienta directa para extraer texto de imágenes subidas o capturadas por cámara y convertirlo en síntesis de voz.",
+            "📷 Probar OCR Estándar", "https://rec-opt-car.streamlit.app/"
+        )
 
-    # Proyecto 3: TF-IDF
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">PLN & Modelos</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">🧠 Laboratorio TF-IDF</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('cerebro.jpg')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Aprende y experimenta el modelo mental detrás de la clasificación de preguntas y recuperación vectorial de información.</p>', unsafe_allow_html=True)
-    url = "https://respositorioclasificacion.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">📊 Analizar con TF-IDF</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
+    # Fila 2
+    col4, col5, col6 = st.columns(3, gap="medium")
+    with col4:
+        render_card(
+            "Accesibilidad & OCR", "🗣️ Asistente de Lectura & Mutismo", "OCR.jpg",
+            "Sistema de lectura asistida diseñado para convertir fragmentos de texto visual a voz para personas con necesidades del habla.",
+            "📖 Abrir Asistente OCR", "https://repositorio-profe-ocr-audio.streamlit.app/"
+        )
+    with col5:
+        render_card(
+            "Bienestar & Inglés", "💬 Terapeuta & English Journal", "sentimientos.webp",
+            "Expresa tus emociones en inglés para recibir orientación terapéutica mientras practicas la redacción en el idioma.",
+            "🌿 Iniciar Sesión", "https://repositoriosentimientos-bv9nizmnom63ycp7x7sdsf.streamlit.app/"
+        )
+    with col6:
+        render_card(
+            "Narrativa & Texto", "🔮 Observatorio de Niebla", "Brujp.jpg",
+            "Adéntrate en la torre del Sabio Eldrin y materializa las palabras de tus textos en nubes de niebla mágica.",
+            "🔮 Canalizar Niebla", "https://repositorionube.streamlit.app/"
+        )
 
-# ── COLUMNA 2 ──
-with col2:
-    # Proyecto 4: Torre de Babel
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Traducción & Voz</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">🌍 Torre de Babel Políglota</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('Traductor.webp')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Graba tu voz y tradúcela de forma instantánea a múltiples idiomas, incluyendo Árabe, Catalán, Francés y más.</p>', unsafe_allow_html=True)
-    url = "https://repositorio-profe-traductor.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">🎙️ Probar Traductor de Voz</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    # Proyecto 5: Sentimientos
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Bienestar & Inglés</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">💬 Terapeuta & English Journal</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('sentimientos.webp')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Expresa tus emociones en inglés para recibir orientación terapéutica mientras practicas la redacción en el idioma.</p>', unsafe_allow_html=True)
-    url = "https://repositoriosentimientos-bv9nizmnom63ycp7x7sdsf.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">🌿 Iniciar Sesión Terapéutica</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    # Proyecto 6: YOLO Inventario
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Visión IA & Stock</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">📦 ScannerIA — Control de Stock</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('inventario.avif')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Auditoría visual automática en tiempo real para negocios y tiendas usando modelos YOLO de detección de objetos.</p>', unsafe_allow_html=True)
-    url = "https://repositorioyolo.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">🔍 Escanear Inventario</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    # Fila 3
+    col7, col8, col9 = st.columns(3, gap="medium")
+    with col7:
+        render_card(
+            "PLN & Modelos", "🧠 Laboratorio TF-IDF", "cerebro.jpg",
+            "Aprende y experimenta el modelo mental detrás de la clasificación de preguntas y recuperación vectorial de información.",
+            "📊 Analizar TF-IDF", "https://respositorioclasificacion.streamlit.app/"
+        )
+    with col8:
+        render_card(
+            "Visión IA & Stock", "📦 ScannerIA — Control de Stock", "inventario.avif",
+            "Auditoría visual automática en tiempo real para negocios y tiendas usando modelos YOLO de detección de objetos.",
+            "🔍 Escanear Inventario", "https://repositorioyolo.streamlit.app/"
+        )
+    with col9:
+        render_card(
+            "Clasificador Facial", "👯 Reconocedor: Isa & Susa", "SusaIsa.jpeg",
+            "Modelo de aprendizaje supervisado entrenado con Teachable Machine para clasificar y distinguir entre dos amigas.",
+            "🤖 Probar Clasificador", "https://rpZELkorMwhkkpShF5PvT8YnqRCupnLTNG.streamlit.app/"
+        )
 
 
-# ── COLUMNA 3 ──
-with col3:
-    # Proyecto 7: OCR Básico
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Visión Bilingüe</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">📄 Reconocimiento Óptico OCR</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('Chat_pdf.png')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Herramienta directa para extraer texto de imágenes subidas o capturadas por cámara y convertirlo en síntesis de voz.</p>', unsafe_allow_html=True)
-    url = "https://rec-opt-car.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">📷 Probar OCR Estándar</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+# ── PESTAÑA 2: SEGUNDA PARTE (8 CUADROS VACÍOS / PROXIMOS DESARROLLOS) ──
+with tab2:
+    st.markdown("<h3 style='color:#FFFFFF; font-weight:800; margin-bottom:20px;'>🛠️ Espacio de Desarrollo — Parte 2</h3>", unsafe_allow_html=True)
+    
+    # Fila 1 (4 columnas)
+    c1, c2, c3, c4 = st.columns(4, gap="medium")
+    with c1:
+        render_card("Próximamente", "Proyecto 10", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+    with c2:
+        render_card("Próximamente", "Proyecto 11", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+    with c3:
+        render_card("Próximamente", "Proyecto 12", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+    with c4:
+        render_card("Próximamente", "Proyecto 13", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
 
-    # Proyecto 8: Nube de Palabras
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Narrativa & Texto</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">🔮 Observatorio de Niebla</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('Brujp.jpg')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Adéntrate en la torre del Sabio Eldrin y materializa las palabras de tus textos en nubes de niebla mágica.</p>', unsafe_allow_html=True)
-    url = "https://repositorionube.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">🔮 Canalizar Niebla</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    # Proyecto 9: Teachable Machine
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    st.markdown('<span class="badge-tag">Clasificador Facial</span>', unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#000000 !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">👯 Reconocedor: Isa & Susa</h3>', unsafe_allow_html=True)
-    try:
-        image = Image.open('SusaIsa.jpeg')
-        st.image(image, use_container_width=True)
-    except Exception:
-        pass
-    st.markdown('<p style="color:#000000 !important; font-size:0.95rem; line-height:1.5; margin-top:10px;">Modelo de aprendizaje supervisado entrenado con Teachable Machine para clasificar y distinguir entre dos amigas.</p>', unsafe_allow_html=True)
-    url = "https://rpZELkorMwhkkpShF5PvT8YnqRCupnLTNG.streamlit.app/"
-    st.markdown(f'<a href="{url}" target="_blank" class="btn-link">🤖 Probar Clasificador</a>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    # Fila 2 (4 columnas)
+    c5, c6, c7, c8 = st.columns(4, gap="medium")
+    with c5:
+        render_card("Próximamente", "Proyecto 14", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+    with c6:
+        render_card("Próximamente", "Proyecto 15", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+    with c7:
+        render_card("Próximamente", "Proyecto 16", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+    with c8:
+        render_card("Próximamente", "Proyecto 17", "", "Descripción del nuevo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
