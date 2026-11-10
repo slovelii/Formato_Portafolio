@@ -1,5 +1,6 @@
 import streamlit as st
-from PIL import Image
+import base64
+from pathlib import Path
 
 # ─────────────────────────────────────────────
 # CONFIGURACIÓN DE PÁGINA
@@ -12,7 +13,7 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# ESTILOS CSS PERSONALIZADOS (AMPLITUD Y ORDEN)
+# ESTILOS CSS PERSONALIZADOS
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -68,7 +69,7 @@ st.markdown("""
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
-        min-height: 480px; /* Altura generosa para que quepa todo holgadamente */
+        min-height: 480px;
     }
 
     .project-card:hover {
@@ -77,12 +78,28 @@ st.markdown("""
         border-color: #00D18F;
     }
 
-    /* FORZAR ALTURA UNIFORME EN LAS IMÁGENES */
-    [data-testid="stImage"] img {
-        height: 160px !important;
+    /* Imágenes uniformes dentro de la tarjeta */
+    .card-img {
         width: 100% !important;
+        height: 160px !important;
         object-fit: cover !important;
         border-radius: 10px !important;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .card-img-placeholder {
+        background: #1E2617;
+        height: 160px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #888888;
+        font-size: 0.9rem;
+        border: 1px dashed #3E4D2F;
+        margin-top: 8px;
+        margin-bottom: 8px;
     }
 
     /* Hero Banner */
@@ -198,40 +215,53 @@ st.markdown(f"""
 
 
 # ─────────────────────────────────────────────
-# FUNCIÓN PARA RENDERIZAR TARJETAS AMPLIAS
+# FUNCIÓN AUXILIAR PARA CONVERTIR IMAGEN A BASE64
+# ─────────────────────────────────────────────
+def get_image_base64(img_path):
+    if img_path and Path(img_path).exists():
+        with open(img_path, "rb") as f:
+            encoded = base64.b64encode(f.read()).decode()
+        ext = img_path.split('.')[-1].lower()
+        if ext == 'jpg': 
+            ext = 'jpeg'
+        elif ext == 'avif':
+            ext = 'avif'
+        elif ext == 'webp':
+            ext = 'webp'
+        return f"data:image/{ext};base64,{encoded}"
+    return ""
+
+
+# ─────────────────────────────────────────────
+# FUNCIÓN PARA RENDERIZAR TARJETAS EN UN SOLO BLOQUE HTML
 # ─────────────────────────────────────────────
 def render_card(tag, title, img_path, description, btn_text, url, disabled=False):
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
+    img_src = get_image_base64(img_path)
     
-    st.markdown(f"""
-        <span class="badge-tag">{tag}</span>
-        <h3 style="color:#FFFFFF !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">{title}</h3>
-    """, unsafe_allow_html=True)
-    
-    if img_path:
-        try:
-            image = Image.open(img_path)
-            st.image(image, use_container_width=True)
-        except Exception:
-            st.markdown(f"""
-            <div style="background:#1E2617; height:160px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#888888; font-size:0.9rem; border: 1px dashed #3E4D2F;">
-                🖼️ Imagen no encontrada
-            </div>
-            """, unsafe_allow_html=True)
+    if img_src:
+        img_html = f'<img src="{img_src}" class="card-img">'
     else:
-        st.markdown(f"""
-        <div style="background:#1E2617; height:160px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#888888; font-size:0.9rem; border: 1px dashed #3E4D2F;">
-            🔒 Espacio Vacío
-        </div>
-        """, unsafe_allow_html=True)
-
-    btn_html = f'<a href="{url}" target="_blank" class="btn-link">{btn_text}</a>' if not disabled else f'<a class="btn-link disabled">{btn_text}</a>'
+        img_html = '<div class="card-img-placeholder">🔒 Espacio Vacío / Imagen no encontrada</div>'
     
-    st.markdown(f"""
-        <p style="color:#CCCCCC !important; font-size:0.92rem; line-height:1.5; margin-top:12px; margin-bottom:12px;">{description}</p>
-        {btn_html}
+    if not disabled:
+        btn_html = f'<a href="{url}" target="_blank" class="btn-link">{btn_text}</a>'
+    else:
+        btn_html = f'<a class="btn-link disabled">{btn_text}</a>'
+
+    html_code = f"""
+    <div class="project-card">
+        <div>
+            <span class="badge-tag">{tag}</span>
+            <h3 style="color:#FFFFFF !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">{title}</h3>
+            {img_html}
+            <p style="color:#CCCCCC !important; font-size:0.92rem; line-height:1.5; margin-top:12px; margin-bottom:12px;">{description}</p>
+        </div>
+        <div>
+            {btn_html}
+        </div>
     </div>
-    """, unsafe_allow_html=True)
+    """
+    st.markdown(html_code, unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────────
