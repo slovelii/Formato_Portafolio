@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# ESTILOS CSS PERSONALIZADOS
+# ESTILOS CSS PERSONALIZADOS (ALTURAS UNIFORMES)
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -55,7 +55,7 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    /* Tarjetas de Proyecto */
+    /* Tarjetas de Proyecto con altura uniforme */
     .project-card {
         background: #29331F !important;
         border: 1px solid #E1EFE6;
@@ -64,12 +64,24 @@ st.markdown("""
         margin-bottom: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
     }
 
     .project-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 28px rgba(0, 209, 143, 0.2);
         border-color: #00D18F;
+    }
+
+    /* FORZAR ALTURA IGUAL EN IMÁGENES DE STREAMLIT */
+    [data-testid="stImage"] img {
+        height: 160px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        border-radius: 10px !important;
     }
 
     /* Hero Banner */
@@ -185,17 +197,19 @@ st.markdown(f"""
 
 
 # ─────────────────────────────────────────────
-# FUNCIÓN PARA RENDERIZAR TARJETAS CON st.image
+# FUNCIÓN PARA RENDERIZAR TARJETAS UNIFORMES
 # ─────────────────────────────────────────────
 def render_card(tag, title, img_path, description, btn_text, url, disabled=False):
-    # Apertura de tarjeta y cabecera en HTML
+    # Abrimos el contenedor general con la clase .project-card
+    st.markdown('<div class="project-card">', unsafe_allow_html=True)
+    
+    # Cabecera y textos superiores
     st.markdown(f"""
-    <div class="project-card">
         <span class="badge-tag">{tag}</span>
         <h3 style="color:#FFFFFF !important; font-weight:800; font-size:1.15rem; margin:6px 0 10px 0;">{title}</h3>
     """, unsafe_allow_html=True)
     
-    # Imagen nativa de Streamlit (soluciona rutas rotas en la nube)
+    # Imagen gestionada por Streamlit pero forzada por CSS a medir exactamente 160px de alto
     if img_path:
         try:
             image = Image.open(img_path)
@@ -213,11 +227,11 @@ def render_card(tag, title, img_path, description, btn_text, url, disabled=False
         </div>
         """, unsafe_allow_html=True)
 
-    # Descripción y botón en HTML
+    # Descripción y botón inferior alineados al fondo
     btn_html = f'<a href="{url}" target="_blank" class="btn-link">{btn_text}</a>' if not disabled else f'<a class="btn-link disabled">{btn_text}</a>'
     
     st.markdown(f"""
-        <p style="color:#CCCCCC !important; font-size:0.92rem; line-height:1.5; margin-top:12px;">{description}</p>
+        <p style="color:#CCCCCC !important; font-size:0.92rem; line-height:1.5; margin-top:12px; margin-bottom:12px;">{description}</p>
         {btn_html}
     </div>
     """, unsafe_allow_html=True)
@@ -230,7 +244,6 @@ tab1, tab2 = st.tabs(["📌 Parte 1: Proyectos Actuales", "🚀 Parte 2: Próxim
 
 # ── PESTAÑA 1: PROYECTOS ACTUALES ──
 with tab1:
-    # Fila 1
     c1, c2, c3 = st.columns(3, gap="medium")
     with c1:
         render_card("Audio & Recetas", "🍝 Receta Audible de Gnocchis", "TextoAVoz.webp",
@@ -247,7 +260,6 @@ with tab1:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Fila 2
     c4, c5, c6 = st.columns(3, gap="medium")
     with c4:
         render_card("Accesibilidad & OCR", "🗣️ Asistente de Lectura & Mutismo", "OCR.jpg",
@@ -264,7 +276,6 @@ with tab1:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Fila 3
     c7, c8, c9 = st.columns(3, gap="medium")
     with c7:
         render_card("PLN & Modelos", "🧠 Laboratorio TF-IDF", "cerebro.jpg",
@@ -284,7 +295,6 @@ with tab1:
 with tab2:
     st.markdown("<h3 style='color:#FFFFFF; font-weight:800; margin-bottom:20px;'>🛠️ Espacio de Desarrollo — Parte 2</h3>", unsafe_allow_html=True)
     
-    # Fila 1 (4 columnas)
     p1, p2, p3, p4 = st.columns(4, gap="medium")
     with p1:
         render_card("Próximamente", "Proyecto 10", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
@@ -297,7 +307,6 @@ with tab2:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Fila 2 (4 columnas)
     p5, p6, p7, p8 = st.columns(4, gap="medium")
     with p5:
         render_card("Próximamente", "Proyecto 14", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
