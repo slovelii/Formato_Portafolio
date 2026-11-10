@@ -180,7 +180,7 @@ with st.sidebar:
     st.markdown("""
     <ol style='color:#000000 !important; font-size:0.9rem; padding-left:18px;'>
         <li><b>Parte 1:</b> Aplicaciones Multimodales (9 Proyectos)</li>
-        <li><b>Parte 2:</b> Próximos Desarrollos (8 Espacios)</li>
+        <li><b>Parte 2:</b> Nuevos Desarrollos e IoT (8 Proyectos)</li>
     </ol>
     """, unsafe_allow_html=True)
 
@@ -318,28 +318,44 @@ with tab1:
                     "🤖 Probar Clasificador", "https://rpZELkorMwhkkpShF5PvT8YnqRCupnLTNG.streamlit.app/")
 
 
-# ── PESTAÑA 2: SEGUNDA PARTE (8 CUADROS VACÍOS AMPLIOS) ──
+# ── PESTAÑA 2: SEGUNDA PARTE (8 PROYECTOS NUEVOS) ──
 with tab2:
     st.markdown("<h3 style='color:#FFFFFF; font-weight:800; margin-bottom:20px;'>🛠️ Espacio de Desarrollo — Parte 2</h3>", unsafe_allow_html=True)
     
     p1, p2, p3, p4 = st.columns(4, gap="medium")
     with p1:
-        render_card("Próximamente", "Proyecto 10", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Crear personajes", "¡Fábrica de monstruos!", "Monstruos.jpg",
+                    "Solo con un pequeño boceto de tu monstruo, la IA será capaz de darle una historia completa para disfrutar, ¡Que emoción!",
+                    "A crear", "https://drawrecog-segundaversion.streamlit.app/")
     with p2:
-        render_card("Próximamente", "Proyecto 11", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Aprender jugando", "La escuela mágica", "Colegio.avif",
+                    "Los niños dibujan un número en la pizarra y la IA tratará de adivinarlo, así, descubriremos el nivel de lectoescritura de los niños.",
+                    "Aprendamos juntos", "https://repositorionumero.streamlit.app/")
     with p3:
-        render_card("Próximamente", "Proyecto 12", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Dibujo rápido", "SpeedSketch", "Sketch.webp",
+                    "Entrenar la agilidad mental por medio de rápidos retos de dibujo. Un gran ejercicio para estimular la alta creatividad.",
+                    "Hora de dibujar", "https://repositorionuevosusa.streamlit.app/")
     with p4:
-        render_card("Próximamente", "Proyecto 13", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Aprendizaje autónomo", "El salón secreto", "Proferobot.webp",
+                    "Ahora tienes un salón personalizado para ti sólito donde un profesor te hará preguntas del examen para poder estudiar desde casa.",
+                    "Vamos a preguntar", "https://chat-pdf-susana.streamlit.app/")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     p5, p6, p7, p8 = st.columns(4, gap="medium")
     with p5:
-        render_card("Próximamente", "Proyecto 14", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Reconocimiento de prendas", "SmartCloset IA", "Closet.avif",
+                    "Ahora, sin siquiera pararte de tu cama, podrás reconocer lo que hay en tu clóset con un sólo click. Se acaban las preocupaciones mañaneras.",
+                    "Revisar tu ropa", "https://closet-vision-app.streamlit.app/")
     with p6:
-        render_card("Próximamente", "Proyecto 15", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Geología", "Monitoreo Geotécnico", "Geosensor.jpeg",
+                    "Deja el sensor en una zona con alto riesgo, así sabrás qué días hay más o menos humedad para investigar con menos peligros de por medio.",
+                    "Investigar", "https://geosensor.streamlit.app/")
     with p7:
-        render_card("Próximamente", "Proyecto 16", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Manager Supermercado", "Manejar intensidad de luz", "Luces.jpg",
+                    "Ahora podrás manejar la intensidad de la luz de tu supermercado desde la comodidad de la oficina. ¡Cada vez menos esfuerzo!",
+                    "Intensificar", "https://luces-supermercado.streamlit.app/")
     with p8:
-        render_card("Próximamente", "Proyecto 17", "", "Espacio reservado para tu próximo proyecto de Inteligencia Artificial.", "🔒 En Desarrollo", "#", disabled=True)
+        render_card("Manager Supermercado", "Comandos por voz", "Puertas.jpeg",
+                    "No sólo puedes hacer las cosas. Sólo con tu voz tienes 4 comandos para hacer que tu tienda parezca que se maneja casi sola.",
+                    "Háblale a tu tienda", "https://control-por-voz.streamlit.app/")
